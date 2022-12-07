@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home_nav_graph"
+        android:title="Home"
+        android:icon="@drawable/ic_home"/>
+
+    <item
+        android:id="@+id/episodio_nav_graph"
+        android:icon="@drawable/ic_pateint"
+        android:title="Pacientes" />
+
+    <item
+        android:id="@+id/tarea_nav_graph"
+        android:title="Tareas"
+        android:icon="@drawable/ic_baseline_format_list_bulleted_24"/>
+
+    <item
+        android:id="@+id/profile_nav_graph"
+        android:icon="@drawable/ic_profile"
+        android:title="Perfil" />
+
+</menu>

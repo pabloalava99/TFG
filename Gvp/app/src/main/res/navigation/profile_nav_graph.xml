@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/profile_nav_graph"
+    app:startDestination="@id/editProfileFragment">
+
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.viamedsalud.gvp.ui.NotificationFragment"
+        android:label="NotificationFragment" />
+
+    <action
+        android:id="@+id/global_notificationFragment"
+        app:destination="@id/notificationFragment"
+        app:enterAnim="@anim/fade_in"
+        app:exitAnim="@anim/fade_out"
+        app:popEnterAnim="@anim/fade_in"
+        app:popExitAnim="@anim/fade_out"/>
+
+
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.viamedsalud.gvp.ui.profile.EditProfileFragment"
+        android:label="EditProfileFragment" >
+        <action
+            android:id="@+id/action_editProfileFragment_to_estadisticaFragment"
+            app:destination="@id/estadisticaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/estadisticaFragment"
+        android:name="com.viamedsalud.gvp.ui.profile.EstadisticaFragment"
+        android:label="EstadisticaFragment" />
+</navigation>

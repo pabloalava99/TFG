@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="handler"
+            type="com.viamedsalud.gvp.ui.episodio.adapter.HClinicaListAdapter" />
+
+        <variable
+            name="hclinica"
+            type="com.viamedsalud.gvp.model.HClinica" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/inner_spacing"
+        android:backgroundTint="@color/white"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="@dimen/_5sdp"
+        app:cardElevation="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/section_spacing">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/inner_spacing"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/inner_spacing">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{hclinica.evolucion}"
+                    android:textColor="@color/colorVariant2"
+                    android:textSize="@dimen/text_size_h5"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/inner_spacing"
+                    android:gravity="center_vertical"
+                    android:text="@{hclinica.fecha}"
+                    android:textColor="@color/colorVariant"
+                    android:textSize="@dimen/text_size_h6"
+                    app:drawableStartCompat="@drawable/ic_calendar"
+                    app:drawableTint="@color/grey" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

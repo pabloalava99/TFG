@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Viamed Salud</string>
+    <string name="profile">Perfil</string>
+    <string name="todo">TODO</string>
+    <string name="password">Contraseña</string>
+    <string name="login">Iniciar Sesión</string>
+    <string name="saludo_bienvenida">Hola </string>
+    <string name="altura">Altura</string>
+    <string name="_150_cm">150 cm</string>
+    <string name="peso">Peso</string>
+    <string name="_72kg">72kg</string>
+    <string name="bmi">BMI</string>
+    <string name="grupo_sanguineo">Grupo sanguíneo</string>
+    <string name="b">B+</string>
+    <string name="informacion_adicional">Información Adicional</string>
+    <string name="diagnostico">Diagnostico</string>
+    <string name="ninguno">Ninguna</string>
+    <string name="medicacion">Medicación</string>
+    <string name="alergias">Alergias</string>
+    <string name="buscar_paciente">Buscar Paciente</string>
+    <string name="nombre">Nombre</string>
+    <string name="escanear_pulsera">Escanear Pulsera</string>
+    <string name="lista_pacientes">Listado Pacientes</string>
+    <string name="evolucion">Evolucion</string>
+    <string name="lbl_privacidad">Respetar la privacidad de los pacientes siguiendo los protocolos.</string>
+    <string name="visitas_hoy">Visitas realizadas hoy</string>
+    <string name="login_to_get_started">Inicia Sesión</string>
+    <string name="recuerdame">Recuerdame</string>
+    <string name="completado">%1$s a sido completado.</string>
+    <string name="deshacer">DESHACER</string>
+
+
+
+    <string-array name="time">
+        <item>1 PM</item>
+        <item>2 PM</item>
+        <item>3 PM</item>
+        <item>4 PM</item>
+        <item>5 PM</item>
+        <item>6 PM</item>
+        <item>7 PM</item>
+        <item>8 PM</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="handler"
+            type="com.viamedsalud.gvp.ui.episodio.EpisodioFragment" />
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/layout_patient"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/layout_button"
+            android:background="@drawable/bottom_background_radius"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/_10sdp">
+
+            <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar_dark_arrow" />
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/toolbar">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/section_spacing"
+                        android:backgroundTint="@color/white"
+                        app:cardCornerRadius="@dimen/_5sdp"
+                        app:cardElevation="0dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/section_spacing">
+
+                            <LinearLayout
+                                android:id="@+id/general"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_100sdp"
+                                android:layout_alignParentTop="true"
+                                android:gravity="center_vertical"
+                                android:orientation="vertical"
+                                android:paddingHorizontal="@dimen/section_spacing"
+                                android:visibility="invisible">
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/general"
+                                    android:layout_marginVertical="@dimen/section_spacing"
+                                    android:baselineAligned="false"
+                                    android:orientation="horizontal">
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight=".25"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/nombre"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:textColor="@color/colorVariant"
+                                            android:textSize="@dimen/text_size_h3"
+                                            android:textStyle="bold" />
+
+
+                                        <TextView
+                                            android:id="@+id/cama"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:drawablePadding="@dimen/inner_spacing"
+                                            android:gravity="center_vertical"
+                                            android:text=""
+                                            android:textColor="@color/colorVariant"
+                                            android:textSize="@dimen/text_size_h5"
+                                            app:drawableStartCompat="@drawable/icono_cama"
+                                            app:drawableTint="@color/grey" />
+
+                                        <TextView
+                                            android:id="@+id/sexo"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/inner_spacing"
+                                            android:textColor="@color/grey"
+                                            android:textSize="@dimen/text_size_h6" />
+
+                                        <TextView
+                                            android:id="@+id/fechaNac"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/inner_spacing"
+                                            android:drawablePadding="@dimen/inner_spacing"
+                                            android:gravity="center_vertical"
+                                            android:textColor="@color/grey"
+                                            android:textSize="@dimen/text_size_h6"
+                                            app:drawableLeftCompat="@drawable/ic_cake"
+                                            app:drawableTint="@color/grey" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight=".03"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:id="@+id/ninoIcono"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="30dp"
+                                            android:gravity="center_vertical"
+                                            android:visibility="gone"
+                                            app:srcCompat="@drawable/ninos" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight=".03"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:id="@+id/alergiasIcono"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="30dp"
+                                            android:gravity="center_vertical"
+                                            android:visibility="gone"
+                                            app:srcCompat="@drawable/alergia" />
+
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                            <com.facebook.shimmer.ShimmerFrameLayout
+                                android:id="@+id/general_shimmer"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_100sdp"
+                                app:shimmer_auto_start="true">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/_100sdp"
+                                    android:layout_alignParentTop="true"
+                                    android:gravity="center_vertical"
+                                    android:orientation="vertical"
+                                    android:paddingHorizontal="@dimen/section_spacing">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@id/general"
+                                        android:baselineAligned="false"
+                                        android:orientation="horizontal">
+
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight=".25"
+                                            android:orientation="vertical">
+
+                                            <FrameLayout
+                                                android:layout_width="150dp"
+                                                android:layout_height="15dp"
+                                                android:background="#C8C8C9" />
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="@dimen/inner_spacing"
+
+                                                android:orientation="horizontal">
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="35dp"
+                                                    android:drawablePadding="@dimen/inner_spacing"
+                                                    android:gravity="center_vertical"
+                                                    app:drawableStartCompat="@drawable/icono_cama"
+                                                    app:drawableTint="@color/grey" />
+
+                                                <FrameLayout
+                                                    android:layout_width="50dp"
+                                                    android:layout_height="17dp"
+                                                    android:layout_marginTop="10dp"
+                                                    android:background="#C8C8C9" />
+                                            </LinearLayout>
+
+
+                                            <FrameLayout
+                                                android:layout_width="70dp"
+                                                android:layout_height="15dp"
+                                                android:background="#C8C8C9" />
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="10dp"
+                                                android:orientation="horizontal">
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:drawablePadding="@dimen/inner_spacing"
+                                                    android:gravity="center_vertical"
+                                                    app:drawableStartCompat="@drawable/ic_cake"
+                                                    app:drawableTint="@color/grey" />
+
+                                                <FrameLayout
+                                                    android:layout_width="80dp"
+                                                    android:layout_height="15dp"
+                                                    android:background="#C8C8C9" />
+                                            </LinearLayout>
+
+                                        </LinearLayout>
+
+
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight=".03"
+                                            android:orientation="vertical">
+
+
+                                        </LinearLayout>
+
+
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                            </com.facebook.shimmer.ShimmerFrameLayout>
+
+                            <LinearLayout
+                                android:id="@+id/informacion"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/general"
+                                android:layout_marginVertical="@dimen/section_spacing"
+                                android:baselineAligned="false"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".20"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/altura"
+                                        android:textColor="@color/grey"
+                                        android:textSize="@dimen/text_size_h6"
+                                        tools:ignore="TooDeepLayout" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/_150_cm"
+                                        android:textColor="@color/colorVariant"
+                                        android:textSize="@dimen/text_size_h5"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".20"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/peso"
+                                        android:textColor="@color/grey"
+                                        android:textSize="@dimen/text_size_h6" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="50kg"
+                                        android:textColor="@color/colorVariant"
+                                        android:textSize="@dimen/text_size_h5"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".15"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/bmi"
+                                        android:textColor="@color/grey"
+                                        android:textSize="@dimen/text_size_h6" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="20"
+                                        android:textColor="@color/colorVariant"
+                                        android:textSize="@dimen/text_size_h5"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight=".25"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/grupo_sanguineo"
+                                        android:textColor="@color/grey"
+                                        android:textSize="@dimen/text_size_h6" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/b"
+                                        android:textColor="@color/colorVariant"
+                                        android:textSize="@dimen/text_size_h5"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <com.github.paolorotolo.expandableheightlistview.ExpandableHeightListView
+                                android:id="@+id/expandable_listview"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/informacion"
+                                android:choiceMode="multipleChoice"
+                                android:padding="0dp"
+                                android:visibility="gone">
+
+                            </com.github.paolorotolo.expandableheightlistview.ExpandableHeightListView>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1.5dp"
+                                android:layout_below="@id/expandable_listview"
+                                android:background="@color/lightGrey" />
+
+                            <CheckedTextView
+                                android:id="@+id/Opc5"
+                                android:layout_width="match_parent"
+                                android:layout_height="?android:attr/listPreferredItemHeightSmall"
+                                android:layout_below="@id/expandable_listview"
+                                android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                                android:gravity="center_vertical"
+                                android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+                                android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+                                android:text="Otro"
+                                android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                                android:textColorHint="@color/grey"
+                                android:textSize="14sp"
+                                android:visibility="gone" />
+
+
+                            <EditText
+                                android:id="@+id/Opc5txt"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_35sdp"
+                                android:layout_below="@id/Opc5"
+                                android:layout_marginBottom="@dimen/inner_spacing"
+                                android:background="@drawable/background_border_edittext"
+                                android:importantForAutofill="no"
+                                android:paddingHorizontal="@dimen/section_spacing"
+                                android:textColorHint="@color/grey"
+                                android:textSize="@dimen/text_size_h5"
+                                android:visibility="gone"
+                                tools:ignore="LabelFor" />
+
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnEvolucion"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:layout_below="@id/Opc5txt"
+                                android:layout_marginVertical="@dimen/section_spacing"
+                                android:elevation="0dp"
+                                android:insetTop="0dp"
+                                android:insetBottom="0dp"
+                                android:onClick="@{()->handler.onEvolucionClicked()}"
+                                android:text="@string/evolucion"
+                                android:textAllCaps="false"
+                                app:cornerRadius="@dimen/_5sdp"
+                                app:elevation="0dp" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnCrearEvolucion"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_35sdp"
+                                android:layout_below="@id/Opc5txt"
+                                android:layout_marginVertical="@dimen/section_spacing"
+                                android:elevation="0dp"
+                                android:insetTop="0dp"
+                                android:insetBottom="0dp"
+                                android:onClick="@{()->handler.onCrearEvolucionClicked()}"
+                                android:text="Crear Evolución"
+                                android:textAllCaps="false"
+                                android:visibility="gone"
+                                app:cornerRadius="@dimen/_5sdp"
+                                app:elevation="0dp" />
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/section_spacing"
+                        android:backgroundTint="@color/white"
+                        app:cardElevation="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/section_spacing">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:drawablePadding="@dimen/inner_spacing"
+                                android:gravity="center_vertical"
+                                android:paddingHorizontal="@dimen/section_spacing"
+                                android:paddingTop="@dimen/inner_spacing"
+                                android:text="@string/informacion_adicional"
+                                android:textColor="@color/colorVariant"
+                                android:textSize="@dimen/text_size_h5"
+                                android:textStyle="bold"
+                                app:drawableLeftCompat="@drawable/ic_information" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_margin="@dimen/section_spacing"
+                                android:background="@color/lightGrey" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingHorizontal="@dimen/section_spacing"
+                                android:text="@string/diagnostico"
+                                android:textColor="@color/colorVariant"
+                                android:textSize="@dimen/text_size_h6"
+                                android:textStyle="bold" />
+
+                            <com.facebook.shimmer.ShimmerFrameLayout
+                                android:id="@+id/diagnostico_shimmer"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:shimmer_auto_start="true">
+
+                                <FrameLayout
+                                    android:layout_width="130dp"
+                                    android:layout_height="17dp"
+                                    android:layout_marginLeft="12dp"
+                                    android:layout_marginTop="6dp"
+                                    android:background="#C8C8C9" />
+
+                            </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+                            <TextView
+                                android:id="@+id/diagnostico"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/inner_spacing"
+                                android:paddingHorizontal="@dimen/section_spacing"
+                                android:text="@string/ninguno"
+                                android:textColor="@color/colorVariant2"
+                                android:textSize="@dimen/text_size_h5"
+                                android:visibility="gone" />
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/section_spacing"
+                                android:paddingHorizontal="@dimen/section_spacing"
+                                android:text="@string/medicacion"
+                                android:textColor="@color/colorVariant"
+                                android:textSize="@dimen/text_size_h6"
+                                android:textStyle="bold" />
+
+                            <com.facebook.shimmer.ShimmerFrameLayout
+                                android:id="@+id/medicacion_shimmer"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:shimmer_auto_start="true">
+
+                                <FrameLayout
+                                    android:layout_width="130dp"
+                                    android:layout_height="17dp"
+                                    android:layout_marginLeft="12dp"
+                                    android:layout_marginTop="6dp"
+                                    android:background="#C8C8C9" />
+
+                            </com.facebook.shimmer.ShimmerFrameLayout>
+
+                            <TextView
+                                android:id="@+id/medicacion"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/inner_spacing"
+                                android:paddingHorizontal="@dimen/section_spacing"
+                                android:text="@string/ninguno"
+                                android:textColor="@color/colorVariant2"
+                                android:textSize="@dimen/text_size_h5"
+                                android:visibility="gone" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/section_spacing"
+                                android:paddingHorizontal="@dimen/section_spacing"
+                                android:text="@string/alergias"
+                                android:textColor="@color/colorVariant"
+                                android:textSize="@dimen/text_size_h6"
+                                android:textStyle="bold" />
+
+                            <com.facebook.shimmer.ShimmerFrameLayout
+                                android:id="@+id/alergias_shimmer"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:shimmer_auto_start="true">
+
+                                <FrameLayout
+                                    android:layout_width="130dp"
+                                    android:layout_height="17dp"
+                                    android:layout_marginLeft="12dp"
+                                    android:layout_marginTop="6dp"
+                                    android:background="#C8C8C9" />
+
+                            </com.facebook.shimmer.ShimmerFrameLayout>
+
+                            <TextView
+                                android:id="@+id/alergias"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/inner_spacing"
+                                android:paddingHorizontal="@dimen/section_spacing"
+                                android:text="@string/ninguno"
+                                android:textColor="@color/colorVariant2"
+                                android:textSize="@dimen/text_size_h5"
+                                android:visibility="gone" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/section_spacing"
+                        android:backgroundTint="@color/white"
+                        app:cardElevation="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/section_spacing">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:drawablePadding="@dimen/inner_spacing"
+                                android:gravity="center_vertical"
+                                android:paddingHorizontal="@dimen/section_spacing"
+                                android:paddingTop="@dimen/inner_spacing"
+                                android:text="Visitas hoy"
+                                android:textColor="@color/colorVariant"
+                                android:textSize="@dimen/text_size_h5"
+                                android:textStyle="bold"
+                                app:drawableLeftCompat="@drawable/ic_calendar" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_margin="@dimen/section_spacing"
+                                android:background="@color/lightGrey" />
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recyclerview_visitas_hoy"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" />
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/section_spacing"
+                        android:backgroundTint="@color/white"
+                        app:cardElevation="0dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/section_spacing"
+                        android:text="Historial Clinico"
+                        android:textColor="@color/colorVariant"
+                        android:textSize="@dimen/text_size_h5"
+                        android:textStyle="bold" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerview_historialClinico"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/section_spacing" />
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/section_spacing"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/lbl_privacidad"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_h6" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>

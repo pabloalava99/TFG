@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/episodio_nav_graph"
+    app:startDestination="@id/episodioListFragment">
+
+
+    <action
+        android:id="@+id/global_episodioListFrgament"
+        app:destination="@id/episodioListFragment"
+        app:enterAnim="@anim/fade_in"
+        app:exitAnim="@anim/fade_out"
+        app:popEnterAnim="@anim/fade_in"
+        app:popExitAnim="@anim/fade_out" />
+    <fragment
+        android:id="@+id/episodioListFragment"
+        android:name="com.viamedsalud.gvp.ui.episodio.EpisodioListFragment"
+        android:label="episodioListFragment" />
+
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.viamedsalud.gvp.ui.NotificationFragment"
+        android:label="NotificationFragment" />
+
+    <action
+        android:id="@+id/global_notificationFragment"
+        app:destination="@id/notificationFragment"
+        app:enterAnim="@anim/fade_in"
+        app:exitAnim="@anim/fade_out"
+        app:popEnterAnim="@anim/fade_in"
+        app:popExitAnim="@anim/fade_out" />
+
+
+
+</navigation>

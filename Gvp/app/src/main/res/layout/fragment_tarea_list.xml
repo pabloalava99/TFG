@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/layout_tareas_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bottom_background_radius"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/_10sdp">
+
+            <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar_dark_arrow" />
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/contenedorScroll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/toolbar">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                    <androidx.coordinatorlayout.widget.CoordinatorLayout
+                        android:id="@+id/contenedor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_below="@id/contenedorScroll"
+                        android:layout_weight="1">
+
+                        <FrameLayout
+                            android:id="@+id/content_frame"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="0dp"
+                            android:padding="0dp">
+
+                            <com.ernestoyaquello.dragdropswiperecyclerview.DragDropSwipeRecyclerView
+                                android:id="@+id/list"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                app:behind_swiped_item_custom_layout="@layout/swiped_completado"
+                                app:divider="@drawable/divider_grid_list"
+                                app:item_layout="@layout/row_tarea" />
+
+                        </FrameLayout>
+
+
+                    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+                    <View
+                        android:id="@+id/divider"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:background="@drawable/divider_grid_list" />
+
+
+                    <androidx.coordinatorlayout.widget.CoordinatorLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@id/divider"
+                        android:layout_weight="1">
+
+                        <FrameLayout
+                            android:id="@+id/content_frame1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/content_frame"
+                            android:layout_margin="0dp"
+                            android:padding="0dp">
+
+                            <com.ernestoyaquello.dragdropswiperecyclerview.DragDropSwipeRecyclerView
+                                android:id="@+id/list1"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                app:behind_swiped_item_custom_layout="@layout/swiped_borrar"
+                                app:divider="@drawable/divider_grid_list"
+                                app:item_layout="@layout/row_tarea" />
+
+                        </FrameLayout>
+
+
+                    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+                </LinearLayout>
+
+
+            </androidx.core.widget.NestedScrollView>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_margin="@dimen/spacing_normal"
+                android:clickable="true"
+                android:contentDescription="TODO"
+                android:focusable="true"
+                android:padding="@dimen/spacing_normal"
+                android:src="@drawable/ic_baseline_add_24"
+                app:tint="@color/lightGrey"
+                app:backgroundTint="@color/colorVariant"
+                app:borderWidth="0dp"
+                app:elevation="4dp" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</layout>

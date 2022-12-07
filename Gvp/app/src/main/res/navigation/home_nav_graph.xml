@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/home_nav_graph"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.viamedsalud.gvp.ui.NotificationFragment"
+        android:label="NotificationFragment" />
+
+    <action
+        android:id="@+id/global_notificationFragment"
+        app:destination="@id/notificationFragment"
+        app:enterAnim="@anim/fade_in"
+        app:exitAnim="@anim/fade_out"
+        app:popEnterAnim="@anim/fade_in"
+        app:popExitAnim="@anim/fade_out" />
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.viamedsalud.gvp.ui.dashboard.HomeFragment"
+        android:label="HomeFragment">
+
+        <action
+            android:id="@+id/action_homeFragment_to_reportFragment2"
+            app:destination="@id/reportFragment2"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
+        <action
+            android:id="@+id/action_homeFragment_to_HClinicaListFragment"
+            app:destination="@id/HClinicaListFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_episodioListFragment"
+            app:destination="@id/episodioListFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_episodioFragment2"
+            app:destination="@id/episodioFragment2" />
+        <action
+            android:id="@+id/action_homeFragment_to_camaListFragment"
+            app:destination="@id/camaListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/episodioListFragment"
+        android:name="com.viamedsalud.gvp.ui.episodio.EpisodioListFragment"
+        android:label="PatientListFragment" >
+        <action
+            android:id="@+id/action_episodioListFragment_to_episodioFragment2"
+            app:destination="@id/episodioFragment2" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/reportFragment2"
+        android:name="com.viamedsalud.gvp.ui.profile.EstadisticaFragment"
+        android:label="ReportFragment" />
+    <fragment
+        android:id="@+id/HClinicaListFragment"
+        android:name="com.viamedsalud.gvp.ui.episodio.TrabajoListFragment"
+        android:label="HClinicaListFragment" />
+    <fragment
+        android:id="@+id/episodioFragment2"
+        android:name="com.viamedsalud.gvp.ui.episodio.EpisodioFragment"
+        android:label="EpisodioFragment" />
+    <fragment
+        android:id="@+id/camaListFragment"
+        android:name="com.viamedsalud.gvp.ui.episodio.TareaListFragment"
+        android:label="CamaListFragment" />
+
+</navigation>

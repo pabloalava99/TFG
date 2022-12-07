@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="handler"
+            type="com.viamedsalud.gvp.ui.episodio.adapter.HClinicaListHoyAdapter" />
+
+        <variable
+            name="hclinica"
+            type="com.viamedsalud.gvp.model.HClinica" />
+
+    </data>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/inner_spacing"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/inner_spacing">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/section_spacing"
+                    android:text="@{hclinica.fecha}"
+                    android:textColor="@color/colorVariant"
+                    android:textSize="@dimen/text_size_h6" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/inner_spacing"
+                    android:paddingHorizontal="@dimen/section_spacing"
+                    android:text="@{hclinica.evolucion}"
+                    android:textColor="@color/colorVariant2"
+                    android:textSize="@dimen/text_size_h5" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="@dimen/section_spacing"
+                    android:background="@color/lightGrey" />
+
+            </LinearLayout>
+        </LinearLayout>
+</layout>

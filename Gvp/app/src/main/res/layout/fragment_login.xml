@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="handler"
+            type="com.viamedsalud.gvp.ui.login.LoginFragment" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/layout_welcome"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/splash_background">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bottom_background_radius">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+
+
+                <ImageView
+                    android:id="@+id/layout_form"
+                    android:layout_width="171dp"
+                    android:layout_height="118dp"
+                    android:layout_gravity="center_horizontal"
+                    android:contentDescription="@string/todo"
+                    android:src="@drawable/logo"
+                    tools:ignore="ImageContrastCheck" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/inner_spacing"
+                    android:text="@string/login_to_get_started"
+                    android:textColor="@color/colorVariant2"
+                    android:textSize="@dimen/text_size_h3"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_40sdp"
+                    android:layout_marginVertical="@dimen/section_spacing"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/inner_spacing"
+                        android:text="@string/nombre"
+                        android:textColor="@color/colorVariant2"
+                        android:textSize="@dimen/text_size_h5" />
+
+                    <EditText
+                        android:id="@+id/name"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginBottom="@dimen/inner_spacing"
+                        android:background="@drawable/background_radius"
+                        android:backgroundTint="@color/white"
+                        android:importantForAutofill="no"
+                        android:inputType="textEmailAddress"
+                        android:paddingHorizontal="@dimen/section_spacing"
+                        android:textColorHint="@color/grey"
+                        android:textSize="@dimen/text_size_h5"
+                        tools:ignore="LabelFor,SpeakableTextPresentCheck" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/inner_spacing"
+                        android:text="@string/password"
+                        android:textColor="@color/colorVariant2"
+                        android:textSize="@dimen/text_size_h5" />
+
+                    <EditText
+                        android:id="@+id/password"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:background="@drawable/background_radius"
+                        android:backgroundTint="@color/white"
+                        android:importantForAutofill="no"
+                        android:inputType="textPassword"
+                        android:paddingHorizontal="@dimen/section_spacing"
+                        android:textColorHint="@color/grey"
+                        android:textSize="@dimen/text_size_h5"
+                        tools:ignore="LabelFor,SpeakableTextPresentCheck" />
+
+                    <CheckBox
+                        android:id="@+id/Recuerdame"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/inner_spacing"
+                        android:buttonTint="@color/colorPrimary"
+                        android:text="@string/recuerdame" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/BtnIniciarSesion"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginVertical="@dimen/section_spacing"
+                        android:elevation="0dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:onClick="@{()->handler.onLoginClicked()}"
+                        android:text="@string/login"
+                        android:textAllCaps="false"
+                        app:cornerRadius="@dimen/_5sdp"
+                        app:elevation="0dp"
+                        tools:ignore="TextContrastCheck" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/loader"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#8AFFFFFF"
+            android:visibility="gone"
+            android:orientation="horizontal">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="60dp"
+                android:layout_marginEnd="60dp"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_speed="2"
+                app:lottie_rawRes="@raw/animation_logo" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_alignParentBottom="true"
+            android:alpha=".1"
+            android:contentDescription="@string/todo"
+            android:scaleType="fitXY"
+            android:src="@drawable/bottom_background"
+            tools:ignore="ImageContrastCheck" />
+    </RelativeLayout>
+</layout>

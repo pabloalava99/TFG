@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios - GVP Admin</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="/vendors/sweetalert2/sweetalert2.min.css">
+    <link rel="stylesheet" href="/vendors/iconly/bold.css">
+
+    <link rel="stylesheet" href="/vendors/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/app.css">
+    <link rel="shortcut icon" href="/images/favicon.svg" type="image/x-icon">
+</head>
+
+<body>
+<div id="app">
+    <div id="sidebar" class="active">
+        <div class="sidebar-wrapper active">
+            <div class="sidebar-header">
+                <div class="d-flex justify-content-between">
+                    <div class="logo">
+                        <a href="index.html"><img src="/images/logo/logo.png" style="height: 6rem;" alt="Logo" srcset=""></a>
+                    </div>
+                    <div class="toggler">
+                        <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar-menu">
+                <ul class="menu">
+
+
+                    <li class="sidebar-title">Episodios</li>
+
+                    <li class="sidebar-item">
+                        <a th:href="@{/Episodio/new/}" class='sidebar-link'>
+                            <i class="bi bi-file-earmark-plus-fill"></i>
+                            <span>Crear Episodio</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a th:href="@{/Episodio/listar/}" class='sidebar-link'>
+                            <i class="bi bi-file-earmark-medical-fill"></i>
+                            <span>Listado Episodios</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-title">Usuarios</li>
+
+                    <li class="sidebar-item  ">
+                        <a th:href="@{/User/new/}" class='sidebar-link'>
+                            <i class="bi bi-person-plus-fill"></i>
+                            <span>Crear Usuario</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item active">
+                        <a th:href="@{/User/listar/}" class='sidebar-link'>
+                            <i class="bi bi-people-fill"></i>
+                            <span>Listado Usuarios</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-title"></li>
+
+                    <li class="sidebar-item">
+                        <form class='sidebar-close-icon' th:action="@{/logout}" method="post">
+                            <input class="btn btn-secondary" type="submit" value="Cerrar sesión" />
+                        </form>
+                    </li>
+
+                </ul>
+            </div>
+            <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+        </div>
+    </div>
+    <div id="main">
+        <header class="mb-3">
+            <a href="#" class="burger-btn d-block d-xl-none">
+                <i class="bi bi-justify fs-3"></i>
+            </a>
+        </header>
+
+        <div class="page-heading">
+            <div class="page-title">
+                <div class="row">
+                    <div class="col-12 col-md-6 order-md-1 order-last">
+                        <h3>Listado de Usuarios</h3>
+                    </div>
+                    <div class="col-12 col-md-6 order-md-2 order-first">
+                        <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Listado Usuarios</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <section class="section">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table table-striped" id="table1">
+                            <thead>
+                            <tr>
+                                <th>Usuario</th>
+                                <th>Contraseña</th>
+                                <th>Fecha Creación</th>
+                                <th>Fecha Modificación</th>
+                                <th>Acciones</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="u:${users}">
+                                <td th:text="${u.username}"></td>
+                                <td>*********</td>
+                                <td th:text="${u.fechaCreacion.toString()}"></td>
+                                <td th:text="${u.fechaModificacion.toString()}"></td>
+                                <td>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <a th:href="@{/User/listar/}+${u.id}">
+                                                <div class="stats-icon"
+                                                     style="background-color: #ffbf00;width: 2.2rem;height: 2.2rem;">
+                                                    <i class="iconly-boldEdit"></i>
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                        <div class="col-sm-4">
+                                            <a th:onclick="eliminarUsuario([[${u.id}]])" href="#">
+                                                <div class="stats-icon red"
+                                                     style="width: 2.2rem;height: 2.2rem;">
+                                                    <i class="iconly-boldDelete"></i>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+        <footer>
+            <div class="footer clearfix mb-0 text-muted">
+                <div class="float-start">
+                    <p>2022 &copy; Pablo Álava Lasheras</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+<script src="/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#table1').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.13.1/i18n/es-ES.json"
+            }
+        });
+    });
+</script>
+
+<script src="/js/main.js"></script>
+<script src="/js/extensions/sweetalert2.js"></script>
+<script src="/vendors/sweetalert2/sweetalert2.all.min.js"></script>
+<script src="/funciones.js"></script>
+
+
+</body>
+
+</html>

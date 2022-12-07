@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="handler"
+            type="com.viamedsalud.gvp.ui.NotificationFragment" />
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/layout_doctor_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/layout_button"
+            android:background="@drawable/bottom_background_radius"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/_10sdp">
+
+            <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar_dark_arrow" />
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/filtro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/toolbar"
+                android:layout_marginStart="@dimen/section_spacing"
+                android:layout_marginTop="@dimen/section_spacing"
+                android:layout_marginEnd="@dimen/section_spacing"
+                android:layout_marginBottom="@dimen/section_spacing"
+                android:background="@drawable/background_radius"
+                android:backgroundTint="@color/white"
+                android:imeOptions="actionDone"
+                android:maxLines="1"
+                android:singleLine="true"
+                app:iconifiedByDefault="false"
+                app:queryBackground="@null"
+                app:queryHint="Buscar Paciente" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_episodio"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/filtro"
+                android:visibility="invisible"
+                android:padding="@dimen/section_spacing" />
+
+            <LinearLayout
+                android:id="@+id/episodios_shimmer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/filtro"
+                android:orientation="vertical"
+                android:visibility="visible"
+                android:padding="@dimen/section_spacing">
+
+                <include layout="@layout/row_episodio_shimmer"></include>
+                <include layout="@layout/row_episodio_shimmer"></include>
+                <include layout="@layout/row_episodio_shimmer"></include>
+                <include layout="@layout/row_episodio_shimmer"></include>
+                <include layout="@layout/row_episodio_shimmer"></include>
+
+            </LinearLayout>
+
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/section_spacing"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/lbl_privacidad"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_h6" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>
